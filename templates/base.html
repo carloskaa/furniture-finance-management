@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/inicio">Inicio</a></li>
+            <li><a href="/agregar-gasto">Agregar Gasto</a></li>
+            <li><a href="/agregar-ingreso">Agregar Ingreso</a></li>
+            <li><a href="/cerrar-sesion">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
