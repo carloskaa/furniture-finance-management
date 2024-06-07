@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Añadir Ingreso</h2>
+<form method="post">
+    {% csrf_token %}
+    Fecha: <input type="date" name="date"><br>
+    Monto: <input type="number" name="amount" step="0.01"><br>
+    Descripción: <textarea name="description"></textarea><br>
+    Tipo: <select name="tipo">
+        {% for tipo in tipos_ingreso %}
+            <option value="{{ tipo.0 }}">{{ tipo.1 }}</option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Añadir</button>
+</form>
+{% endblock %}

@@ -1,10 +1,7 @@
 from django.urls import path
-from . import views
-app_name = 'finance_control'
+from .views import home, logout_sesion
 
 urlpatterns = [
-    path('inicio', views.home, name='home'),
-    path('agregar-gasto/', views.agregar_gasto, name='agregar_gasto'),
-    path('agregar-ingreso/', views.agregar_ingreso, name='agregar_ingreso'),
-    path('cerrar-sesion/', views.cerrar_sesion, name='cerrar_sesion'),
+    path('home', home, name='home'),
+    path('logout_sesion/', logout_sesion, name='logout_sesion'),
 ]

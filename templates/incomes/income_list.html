@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Lista de Ingresos</h2>
+<ul>
+    {% for income in incomes %}
+        <li>{{ income.date }} - {{ income.amount }} - {{ income.description }} - Ingresado por: {{ income.user.username }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

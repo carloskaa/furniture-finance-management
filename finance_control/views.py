@@ -3,20 +3,17 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import redirect
-
+from expenses.models import Expense
+from incomes.models import Income
+from django.db.models import Sum
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    total_expenses = Expense.objects.aggregate(Sum('amount'))['amount__sum'] or 0
+    total_incomes = Income.objects.aggregate(Sum('amount'))['amount__sum'] or 0
+    return render(request, 'home.html', {'total_expenses': total_expenses, 'total_incomes': total_incomes})
 
-@login_required
-def agregar_gasto(request):
-    return render(request, 'agregar_gasto.html')
 
-@login_required
-def agregar_ingreso(request):
-    return render(request, 'agregar_ingreso.html')
-
-def cerrar_sesion(request):
+def logout_sesion(request):
     logout(request)
     return redirect('login')  # Asumiendo que tienes una URL llamada 'login'
