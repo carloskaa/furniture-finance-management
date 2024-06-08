@@ -78,12 +78,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'casablanca_database',
+        'USER': 'postgres',
+        'PASSWORD': 'Tunja2021*',
+        'HOST': 'db',  # O la dirección del servidor de tu base de datos
+        'PORT': '5432',       # O el puerto que uses para PostgreSQL
     }
 }
+
 
 
 # Password validation
