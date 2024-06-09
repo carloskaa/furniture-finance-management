@@ -24,7 +24,10 @@ SECRET_KEY = 'django-insecure-m8zhf+oo==v6jh)uu*4(v#n#y#q1$awba9toe76&9-9ixymd$p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = [
+    "localhost",
+    "*",
+]
 
 
 # Application definition
@@ -91,7 +94,7 @@ DATABASES = {
         'NAME': 'casablanca_database',
         'USER': 'postgres',
         'PASSWORD': 'Tunja2021*',
-        'HOST': 'db',  # O la dirección del servidor de tu base de datos
+        'HOST': 'localhost',  # O la dirección del servidor de tu base de datos
         'PORT': '5432',       # O el puerto que uses para PostgreSQL
     }
 }
@@ -138,3 +141,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+DCS_SESSION_COOKIE_SAMESITE = "Lax"
