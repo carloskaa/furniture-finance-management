@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -91,15 +91,13 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'casablanca_database',
-        'USER': 'postgres',
-        'PASSWORD': 'Tunja2021*',
-        'HOST': 'localhost',  # O la dirección del servidor de tu base de datos
-        'PORT': '5432',       # O el puerto que uses para PostgreSQL
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST', 'db'),  # El valor predeterminado es 'db'
+        'PORT': os.getenv('DATABASE_PORT', '5432'),  # El valor predeterminado es '5432'
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
