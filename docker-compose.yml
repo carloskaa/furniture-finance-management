@@ -9,7 +9,9 @@ services:
       - POSTGRES_DB=casablanca_database
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Tunja2021*
-    
+    ports:
+      - "5432:5432" # Opcional: Exponer el puerto de PostgreSQL
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -19,3 +21,9 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    environment:
+      - DATABASE_NAME=casablanca_database
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=Tunja2021*
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432

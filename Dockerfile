@@ -11,3 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia el resto del código de la aplicación
 COPY . /app/
 
+# Expone el puerto 8000
+EXPOSE 8000
+
+# Ejecuta el servidor de desarrollo de Django
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
