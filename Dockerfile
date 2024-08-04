@@ -16,7 +16,7 @@ RUN apt-get update && \
 COPY theme/static_src/package*.json /app/theme/static_src/
 WORKDIR /app/theme/static_src/
 RUN npm install
-
+RUN npm install tailwindcss postcss-cli autoprefixer
 # Copia el resto del código de la aplicación
 WORKDIR /app
 COPY . /app/
