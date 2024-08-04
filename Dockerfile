@@ -21,7 +21,7 @@ RUN npm install tailwindcss postcss-cli autoprefixer
 WORKDIR /app
 COPY . /app/
 
-RUN npm run build:css --prefix /app/theme/static_src
+RUN npm run build --prefix /app/theme/static_src
 
 # Expone el puerto 8000
 EXPOSE 8000

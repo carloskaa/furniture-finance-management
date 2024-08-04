@@ -55,8 +55,8 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 #npm bin path for windows
-NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
-# NPM_BIN_PATH = 
+# NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+NPM_BIN_PATH ='/usr/local/bin/npm'
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/accounts/login'
