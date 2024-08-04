@@ -42,7 +42,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'tailwind',
+    'theme',
+    'django_browser_reload',
+    'widget_tweaks',
 ]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+#npm bin path for windows
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+# NPM_BIN_PATH = 
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/accounts/login'
@@ -55,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -91,10 +106,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER': os.getenv('DATABASE_USER'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': os.getenv('DATABASE_HOST', 'db'),  # El valor predeterminado es 'db'
+        'NAME': os.getenv('DATABASE_NAME','casablanca_database'),
+        'USER': os.getenv('DATABASE_USER','postgres'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD','Tunja2021*'),
+        'HOST': os.getenv('DATABASE_HOST', '3.12.71.39'),  # El valor predeterminado es 'db'.
         'PORT': os.getenv('DATABASE_PORT', '5432'),  # El valor predeterminado es '5432'
     }
 }
