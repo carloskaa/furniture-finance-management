@@ -27,3 +27,4 @@ services:
       - DATABASE_PASSWORD=Tunja2021*
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
+

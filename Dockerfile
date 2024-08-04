@@ -18,6 +18,7 @@ WORKDIR /app/theme/static_src/
 RUN npm install
 
 # Copia el resto del código de la aplicación
+WORKDIR /app
 COPY . /app/
 
 # Expone el puerto 8000
@@ -25,3 +26,4 @@ EXPOSE 8000
 
 # Ejecuta el servidor de producción Gunicorn
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
