@@ -15,10 +15,10 @@ RUN apt-get update && apt-get install -y curl
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 # Copia el archivo package.json y package-lock.json (si existe) y luego instala las dependencias de npm
-COPY theme/static_src/package*.json /app/theme/static_src/
-WORKDIR /app/theme/static_src/
-RUN npm install
-RUN npm install -g cross-env
+# COPY theme/static_src/package*.json /app/theme/static_src/
+# WORKDIR /app/theme/static_src/
+# RUN npm install
+# RUN npm install -g cross-env
 
 # Copia el resto del código de la aplicación
 WORKDIR /app
