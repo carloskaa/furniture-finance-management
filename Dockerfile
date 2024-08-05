@@ -25,7 +25,7 @@ WORKDIR /app
 COPY . /app/
 
 # Construye los archivos CSS con Tailwind
-RUN npm run start --prefix /app/theme/static_src
+# RUN npm run start --prefix /app/theme/static_src
 RUN SECRET_KEY=nothing python manage.py tailwind install --no-input;
 RUN SECRET_KEY=nothing python manage.py tailwind build --no-input;
 RUN SECRET_KEY=nothing python manage.py collectstatic --no-input;
