@@ -23,6 +23,7 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - tailwind
     environment:
       - DATABASE_NAME=casablanca_database
       - DATABASE_USER=postgres
@@ -31,7 +32,6 @@ services:
       - DATABASE_PORT=5432
 
   tailwind:
-    # <<: *default-app
     command: "python manage.py tailwind start"
     # Without tty, no stdin, and tailwind watcher aborts
     # https://github.com/tailwindlabs/tailwindcss/issues/5324
