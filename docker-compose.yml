@@ -31,8 +31,8 @@ services:
       - DATABASE_PORT=5432
 
   tailwind:
-    image: node:16
-    working_dir: /app/theme/static_src
-    volumes:
-      - .:/app
-    command: npm run dev
+    <<: *default-app
+    command: "python manage.py tailwind start"
+    # Without tty, no stdin, and tailwind watcher aborts
+    # https://github.com/tailwindlabs/tailwindcss/issues/5324
+    tty: true
