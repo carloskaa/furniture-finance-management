@@ -23,7 +23,7 @@ WORKDIR /app
 COPY . /app/
 
 # Construye los archivos CSS con Tailwind
-RUN npm run build --prefix /app/theme/static_src
+RUN npm run start --prefix /app/theme/static_src
 
 # Expone el puerto 8000
 EXPOSE 8000
