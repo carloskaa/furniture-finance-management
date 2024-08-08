@@ -1,28 +1,22 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang='es'>
-    <head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
     <title>Mi Proyecto</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        {% tailwind_css %}
 </head>
-
 <body class="bg-gray-50 font-serif leading-normal tracking-normal">
-    <nav>
-        <div class="container mx-auto">
-            <ul>
-                <li class="text-5xl"><a href="{% url 'home' %}" >Inicio</a></li>
-                <li class="text-5xl"><a href="{% url 'add_expense' %}" >Agregar Gasto</a></li>
-                <li class="text-5xl"><a href="{% url 'add_income' %}" >Agregar Ingresooooooooooo</a></li>
-                <li class="text-5xl"><a href="/logout_sesion" >Cerrar Sesión</a></li>
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto p-4">
+            <ul class="flex space-x-4">
+                <li><a href="{% url 'home' %}" class="text-blue-500 hover:text-blue-700">Inicio</a></li>
+                <li><a href="{% url 'add_expense' %}" class="text-blue-500 hover:text-blue-700">Agregar Gasto</a></li>
+                <li><a href="{% url 'add_income' %}" class="text-blue-500 hover:text-blue-700">Agregar Ingreso</a></li>
+                <li><a href="/logout_sesion" class="text-blue-500 hover:text-blue-700">Cerrar Sesión</a></li>
             </ul>
         </div>
     </nav>
-    <div class="container mx-auto">
-        {% block content %}
-        {% endblock %}
-    </div>
-</body>
-</html>
+    <div class="container mx-au
