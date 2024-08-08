@@ -1,37 +1,38 @@
-# Usa una imagen base oficial de Python
-FROM python:3.10
+FROM python:3.12-slim-bookworm
 
-# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia el archivo de requerimientos y luego instálalos
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+ARG NODE_MAJOR=18
 
-# Instala Node.js y npm
-# RUN apt-get update && \
-#     apt-get install -y nodejs npm
-RUN apt-get update && apt-get install -y curl
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
-# Copia el archivo package.json y package-lock.json (si existe) y luego instala las dependencias de npm
-# COPY theme/static_src/package*.json /app/theme/static_src/
-# WORKDIR /app/theme/static_src/
-# RUN npm install
-# RUN npm install -g cross-env
+RUN apt-get update \
+  && apt-get install -y ca-certificates curl gnupg \
+  && mkdir -p /etc/apt/keyrings \
+  && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
+  && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
+  && apt-get update \
+  && apt-get install nodejs -y \
+  && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
+  && apt-get clean \
+  && useradd --create-home python \
+  && chown python:python -R /app
 
-# Copia el resto del código de la aplicación
+USER python
+
+COPY --chown=python:python requirements*.txt ./
+
+RUN pip install -r requirements.txt
+
+ENV DEBUG="${DEBUG}" \
+    PYTHONUNBUFFERED="true" \
+    PATH="${PATH}:/home/python/.local/bin" \
+    USER="python"
+
+COPY --chown=python:python . .
+
 WORKDIR /app
-COPY . /app/
 
-# Construye los archivos CSS con Tailwind
-# RUN npm run start --prefix /app/theme/static_src
 RUN SECRET_KEY=nothing python manage.py tailwind install --no-input;
 RUN SECRET_KEY=nothing python manage.py tailwind build --no-input;
 RUN SECRET_KEY=nothing python manage.py collectstatic --no-input;
 
-# Expone el puerto 8000
-EXPOSE 8000
-
-# Ejecuta el servidor de desarrollo de Django
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver"]
