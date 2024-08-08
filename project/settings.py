@@ -58,7 +58,7 @@ TAILWIND_DEV_MODE = DEBUG
 
 
 #npm bin path for windows
-#NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+# NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
 
 
 LOGIN_REDIRECT_URL = '/home'

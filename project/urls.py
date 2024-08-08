@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path("", TemplateView.as_view(template_name="base.html")),
     path('admin/', admin.site.urls),
     path('', include('finance_control.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
