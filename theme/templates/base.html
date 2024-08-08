@@ -1,19 +1,21 @@
 {% load static tailwind_tags %}
+<!DOCTYPE html>
 <html lang='es'>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% tailwind_css %}
+    <head>
     <title>Mi Proyecto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% tailwind_css %}
+    
 </head>
-<body>
+<body class="bg-gray-50 font-serif leading-normal tracking-normal">
     <nav>
         <ul>
             <li><a href="{% url 'home' %}">Inicio</a></li>
             <li><a href="{% url 'add_expense' %}">Agregar Gasto</a></li>
             <li><a href="{% url 'add_income' %}">Agregar Ingreso</a></li>
-            <li><a href="/logout_sesion">Cerrar Sesión</a></li>
+            <li><a href="/logout_sesion">Cerrar Sesión777</a></li>
         </ul>
     </nav>
     <div class="content">
