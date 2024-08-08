@@ -8,17 +8,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {% tailwind_css %}
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <nav class="bg-blue-600 p-4 shadow-md">
-        <div class="container mx-auto">
-            <ul class="flex space-x-4 text-white">
-                <li><a href="{% url 'home' %}" class="hover:bg-blue-700 px-3 py-2 rounded">Inicio</a></li>
-                <li><a href="{% url 'add_expense' %}" class="hover:bg-blue-700 px-3 py-2 rounded">Agregar Gasto</a></li>
-                <li><a href="{% url 'add_income' %}" class="hover:bg-blue-700 px-3 py-2 rounded">Agregar Ingresooooooooooo</a></li>
-                <li><a href="/logout_sesion" class="hover:bg-blue-700 px-3 py-2 rounded">Cerrar Sesión</a></li>
-            </ul>
-        </div>
-    </nav>
+<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+    <div class="container mx-auto">
+        <section class="flex items-center justify-center h-screen">
+            <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
+        </section>
+    </div>
     <div class="container mx-auto p-6">
         {% block content %}
         {% endblock %}
