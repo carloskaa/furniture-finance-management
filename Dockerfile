@@ -32,8 +32,8 @@ COPY --chown=python:python . .
 
 WORKDIR /app
 
-RUN python manage.py tailwind install --no-input; \
-    python manage.py tailwind build --no-input; \
-    python manage.py collectstatic --no-input;
+RUN python manage.py tailwind install; 
+RUN python manage.py tailwind build; 
+RUN python manage.py collectstatic;
 
 CMD ["python", "manage.py", "runserver"]
