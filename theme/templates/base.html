@@ -1,24 +1,24 @@
-{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang='es'>
-    <head>
+<head>
     <title>Mi Proyecto</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% tailwind_css %}
-    
 </head>
-<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-    <nav>
-        <ul>
-            <li><a href="{% url 'home' %}">Inicio</a></li>
-            <li><a href="{% url 'add_expense' %}">Agregar Gasto</a></li>
-            <li><a href="{% url 'add_income' %}">Agregar Ingreso</a></li>
-            <li><a href="/logout_sesion">Cerrar Sesión777</a></li>
-        </ul>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <nav class="bg-blue-600 p-4 shadow-md">
+        <div class="container mx-auto">
+            <ul class="flex space-x-4 text-white">
+                <li><a href="{% url 'home' %}" class="hover:bg-blue-700 px-3 py-2 rounded">Inicio</a></li>
+                <li><a href="{% url 'add_expense' %}" class="hover:bg-blue-700 px-3 py-2 rounded">Agregar Gasto</a></li>
+                <li><a href="{% url 'add_income' %}" class="hover:bg-blue-700 px-3 py-2 rounded">Agregar Ingreso</a></li>
+                <li><a href="/logout_sesion" class="hover:bg-blue-700 px-3 py-2 rounded">Cerrar Sesión</a></li>
+            </ul>
+        </div>
     </nav>
-    <div class="content">
+    <div class="container mx-auto p-6">
         {% block content %}
         {% endblock %}
     </div>
