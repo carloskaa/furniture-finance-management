@@ -5,7 +5,7 @@ WORKDIR /app
 ARG NODE_MAJOR=18
 
 RUN apt-get update \
-  && apt-get install -y ca-certificates curl gnupg \
+  && apt-get install -y ca-certificates curl gnupg build-essential \
   && mkdir -p /etc/apt/keyrings \
   && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
   && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
@@ -20,7 +20,8 @@ USER python
 
 COPY --chown=python:python requirements*.txt ./
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip setuptools wheel \
+  && pip install --no-cache-dir -r requirements.txt
 
 ENV DEBUG="${DEBUG}" \
     PYTHONUNBUFFERED="true" \
@@ -31,8 +32,8 @@ COPY --chown=python:python . .
 
 WORKDIR /app
 
-RUN SECRET_KEY=nothing python manage.py tailwind install --no-input;
-RUN SECRET_KEY=nothing python manage.py tailwind build --no-input;
-RUN SECRET_KEY=nothing python manage.py collectstatic --no-input;
+RUN SECRET_KEY=nothing python manage.py tailwind install --no-input; \
+    SECRET_KEY=nothing python manage.py tailwind build --no-input; \
+    SECRET_KEY=nothing python manage.py collectstatic --no-input;
 
 CMD ["python", "manage.py", "runserver"]
