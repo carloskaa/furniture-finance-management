@@ -1,20 +1,22 @@
-version: '3'
+version: "3.7"
+
+x-app: &default-app
+  build:
+    context: "."
+  volumes:
+    - .:/app
+  restart: "unless-stopped"
 
 services:
   web:
-    build: .
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
-    volumes:
-      - .:/app
+    <<: *default-app
+    command: "python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
 
   tailwind:
-    build: .
-    command: python manage.py tailwind start
-    volumes:
-      - .:/app
-    depends_on:
-      - web
+    <<: *default-app
+    command: "python manage.py tailwind start"
+    # Without tty, no stdin, and tailwind watcher aborts
+    # https://github.com/tailwindlabs/tailwindcss/issues/5324
+    tty: true

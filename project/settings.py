@@ -14,6 +14,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# NPM_BIN_PATH ='/usr/local/bin/npm'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -29,6 +30,9 @@ ALLOWED_HOSTS = [
     "*",
 ]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -50,13 +54,12 @@ INSTALLED_APPS = [
 ]
 
 TAILWIND_APP_NAME = 'theme'
+TAILWIND_DEV_MODE = DEBUG
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+
 #npm bin path for windows
 #NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
-NPM_BIN_PATH ='/usr/local/bin/npm'
+
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/accounts/login'
@@ -149,6 +152,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
