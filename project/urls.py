@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 from django.views.generic import TemplateView
+from finance_control.views import redirect_to_login
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="base2.html")),
+    path("", redirect_to_login),
     path('admin/', admin.site.urls),
     path('', include('finance_control.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

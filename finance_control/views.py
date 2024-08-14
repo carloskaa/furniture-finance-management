@@ -17,3 +17,6 @@ def home(request):
 def logout_sesion(request):
     logout(request)
     return redirect('login')  # Asumiendo que tienes una URL llamada 'login'
+
+def redirect_to_login(request):
+    return redirect('/accounts/login')
