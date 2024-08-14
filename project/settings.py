@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 TAILWIND_APP_NAME = 'theme'
 TAILWIND_DEV_MODE = DEBUG
 
+CSRF_TRUSTED_ORIGINS = ['https://casablancamuebles.com']
 
 #npm bin path for windows
 # NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
