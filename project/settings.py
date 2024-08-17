@@ -59,7 +59,7 @@ TAILWIND_DEV_MODE = DEBUG
 CSRF_TRUSTED_ORIGINS = ['https://casablancamuebles.com']
 
 #npm bin path for windows
-# NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
 
 
 LOGIN_REDIRECT_URL = '/home'
