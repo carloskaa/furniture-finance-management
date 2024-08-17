@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,7 +61,7 @@ TAILWIND_DEV_MODE = DEBUG
 CSRF_TRUSTED_ORIGINS = ['https://casablancamuebles.com']
 
 #npm bin path for windows
-NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+NPM_BIN_PATH = os.getenv('NPM_PATH')
 
 
 LOGIN_REDIRECT_URL = '/home'
@@ -110,11 +112,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME','casablanca_database'),
-        'USER': os.getenv('DATABASE_USER','postgres'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD','Tunja2021*'),
-        'HOST': os.getenv('DATABASE_HOST', '3.12.71.39'),  # El valor predeterminado es 'db'.
-        'PORT': os.getenv('DATABASE_PORT', '5432'),  # El valor predeterminado es '5432'
+        'NAME': os.getenv('POSTGRES_DATABASE_NAME'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_DATABASE_HOST'),  # El valor predeterminado es 'db'.
+        'PORT': os.getenv('POSTGRES_PORT'),  # El valor predeterminado es '5432'
     }
 }
 
