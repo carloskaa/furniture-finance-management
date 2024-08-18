@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block content %}
-<h2>Resumen Financiero</h2>
-<p>Total de Gastos: {{ total_expenses }}</p>
-<p>Total de Ingresos: {{ total_incomes }}</p>
+<div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6 mt-6">
+    <h2 class="text-3xl font-semibold text-center mb-8">Resumen Financiero</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+        <div class="bg-red-100 p-4 rounded-lg text-center">
+            <p class="text-lg font-medium text-red-600">Total de Gastos</p>
+            <p class="text-2xl font-bold">{{ total_expenses|intcomma }} COP</p>
+        </div>
+        <div class="bg-green-100 p-4 rounded-lg text-center">
+            <p class="text-lg font-medium text-green-600">Total de Ingresos</p>
+            <p class="text-2xl font-bold">{{ total_incomes|intcomma }} COP</p>
+        </div>
+    </div>
+    <div class="flex justify-center space-x-4 mt-6">
+        <a href="{% url 'expense_list' %}" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">
+            Ver Lista de Gastos
+        </a>
+        <a href="{% url 'income_list' %}" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+            Ver Lista de Ingresos
+        </a>
+    </div>
+</div>
 {% endblock %}
