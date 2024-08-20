@@ -4,12 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceder</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+    <title>Casablanca</title>
     {% tailwind_css %}
+    <style>
+        .bg-cover-custom {
+            background-image: url("{% static 'images/fondo2.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Altura total de la ventana */
+            overflow: hidden; /* Evita el desbordamiento */
+        }
+        
+    </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
-        <div class="bg-white p-6 rounded-lg">
+<body class="bg-cover-custom flex items-center justify-center min-h-screen">
+    <div class="container mx-auto max-w-md shadow-lg hover:shadow-2xl transition duration-300">
+        <div class="bg-white p-8 rounded-lg relative">
+            <!-- Logo -->
+            <div class="flex justify-center mb-6">
+                <img src="{% static 'images/logo.png' %}" alt="Logo Casablanca" class="h-16">
+            </div>
             <h3 class="text-gray-700 text-2xl font-bold mb-6 text-center">Acceder</h3>
             <hr class="mb-6">
             <div class="login-container">
@@ -34,7 +50,7 @@
                         </button>
                     </div>
                 </form>
-                <a href="#" class="text-green-500 text-center mt-4 block">Aviso de privacidad</a>
+                <a href="#" class="text-green-500 text-center mt-4 block">Tunja, Boyacá</a>
             </div>
         </div>
     </div>
