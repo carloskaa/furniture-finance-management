@@ -1,0 +1,53 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casablanca Muebles</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="/" class="text-3xl font-bold text-orange-500">Casablanca Muebles</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-700 hover:text-orange-500">Productos</a>
+                    <a href="#" class="text-gray-700 hover:text-orange-500">Sobre Nosotros</a>
+                    <a href="#" class="text-gray-700 hover:text-orange-500">Contacto</a>
+                    <a href="#" class="text-gray-700 hover:text-orange-500">Facturación</a>
+                </div>
+                <div>
+                    <a href="accounts/login/" class="text-gray-700 hover:text-orange-500">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center" style="background-image: url('{% static 'images/furniture.jpg' %}'); height: 500px;">
+        <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white flex items-center h-full">
+            <div>
+                <h1 class="text-5xl font-bold">70% DE DESCUENTO</h1>
+                <p class="mt-4 text-lg">En muebles seleccionados para renovar tu hogar.</p>
+                <a href="#" class="mt-8 inline-block bg-orange-500 text-white font-semibold py-3 px-6 rounded hover:bg-orange-600">Descubre Más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center">&copy; 2024 Casablanca Muebles. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
