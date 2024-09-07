@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Casablanca Muebles</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="/" class="text-3xl font-bold text-orange-500">Casablanca Muebles</a>
+
+                <!-- Categorías con subcategorías -->
+                <div class="hidden md:flex items-center space-x-4">
+                    {% for categoria in categorias %}
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-orange-500 inline-block">{{ categoria.nombre }}</a>
+                        <!-- Subcategorías desplegables -->
+                        <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md z-10">
+                            <ul class="py-2">
+                                {% for subcategoria in categoria.subcategorias.all %}
+                                <li><a href="?subcategoria={{ subcategoria.id }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">{{ subcategoria.nombre }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Enlaces adicionales -->
+                <div>
+                    <a href="accounts/login/" class="text-gray-700 hover:text-orange-500">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (opcional) -->
+    <section class="relative bg-cover bg-center" style="background-image: url('{% static 'images/furniture.jpg' %}'); height: 400px;">
+        <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white flex items-center h-full">
+            <div>
+                <h1 class="text-5xl font-bold">Catálogo de Muebles</h1>
+                <p class="mt-4 text-lg">Encuentra los mejores productos para tu hogar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <section class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-6">Nuestros Productos</h2>
+
+        <!-- Grid de productos filtrados -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for producto in productos %}
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <!-- Imagen del producto -->
+                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <!-- Nombre del producto -->
+                    <h2 class="text-lg font-bold">{{ producto.nombre }}</h2>
+                    <!-- Descripción del producto -->
+                    <p class="text-gray-500">{{ producto.descripcion }}</p>
+                    <!-- Precio -->
+                    <p class="mt-2 text-orange-500 font-semibold">COP {{ producto.precio_final }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center">&copy; 2024 Casablanca Muebles. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
