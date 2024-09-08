@@ -19,6 +19,8 @@ from django.contrib.auth import views as auth_views
 from django.urls import include, path
 from django.views.generic import TemplateView
 from store.views import home_page
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("", home_page),
@@ -39,3 +41,6 @@ urlpatterns = [
 #     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
 #     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
 # ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

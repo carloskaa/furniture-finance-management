@@ -18,7 +18,7 @@ class Producto(models.Model):
     descripcion = models.TextField()
     precio_original = models.DecimalField(max_digits=10, decimal_places=2)
     precio_descuento = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
+    imagen = models.ImageField(upload_to='media/', blank=True, null=True)
     subcategoria = models.ForeignKey(Subcategoria, related_name='productos', on_delete=models.CASCADE)
 
     def __str__(self):
