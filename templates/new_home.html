@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de muebles - Ofrecemos una gran variedad de muebles para el hogar y la oficina.">
+    <title>Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Encabezado / Navbar -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-800">CasaBlanca Muebles</h1>
+            <nav>
+                <a href="#inicio" class="text-gray-600 hover:text-gray-800 mx-4">Inicio</a>
+                <a href="#productos" class="text-gray-600 hover:text-gray-800 mx-4">Productos</a>
+                <a href="#ubicacion" class="text-gray-600 hover:text-gray-800 mx-4">Ubicación</a>
+                <a href="#contacto" class="text-gray-600 hover:text-gray-800 mx-4">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de presentación -->
+    <section id="inicio" class="bg-cover bg-center" style="background-image: url('{% static 'images/furniture.jpg' %}'); height: 400px;">
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+            <div class="text-center text-white">
+                <h2 class="text-4xl font-semibold">Bienvenido a CasaBlanca Muebles</h2>
+                <p class="mt-4 text-lg">Encuentra el mueble perfecto para tu hogar</p>
+                <a href="#productos" class="mt-8 inline-block bg-slate-900 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">Ver Productos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Nuestros Productos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Card de producto -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1567016545779-68e3cddc8d6e" alt="Mueble 1">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Mueble de Sala</h3>
+                    <p class="mt-2 text-gray-600">Perfecto para complementar cualquier sala moderna.</p>
+                </div>
+            </div>
+            <!-- Repite las tarjetas según los productos -->
+        </div>
+    </section>
+
+    <!-- Sección de Redes Sociales -->
+    <section id="redes-sociales" class="bg-slate-900  py-16">
+        <div class="container mx-auto px-6 text-center text-white">
+            <h2 class="text-3xl font-bold mb-8">Síguenos en Nuestras Redes Sociales</h2>
+            <div class="flex justify-center space-x-8">
+                <a href="https://www.facebook.com/Casablancamueblesoficial" class="text-xl hover:text-gray-200">Facebook</a>
+                <a href="https://www.instagram.com/casablancamueblesoficial/" class="text-xl hover:text-gray-200">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Ubicación -->
+    <section id="ubicacion" class="py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Visitanos</h2>
+            <p class="text-gray-600 mb-4">En nuestra tienda física:</p>
+            <p class="text-lg font-semibold text-gray-700">Av oriental #10a - 15, Tunja - Boyaca, Colombia</p>
+            <!-- Mapa de Google embebido -->
+            <div class="mt-8">
+                <iframe class="w-full h-64" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.2928137340928!2d-73.3655822250151!3d5.523499294456608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a7dd0eedf14e9%3A0xdd97f6c4bcd22005!2sCasablanca%20Muebles%20Tunja!5e0!3m2!1ses!2sco!4v1727987425519!5m2!1ses!2sco" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 py-6">
+        <div class="container mx-auto px-6 text-center text-white">
+            <p class="text-sm">&copy; 2024 CasaBlanca Muebles. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

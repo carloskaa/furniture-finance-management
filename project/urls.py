@@ -19,11 +19,12 @@ from django.contrib.auth import views as auth_views
 from django.urls import include, path
 from django.views.generic import TemplateView
 from store.views import home_page
+from store.views import new_home_view
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("", home_page),
+    path("", new_home_view, name="home"),
     path('admin/', admin.site.urls),
     path('', include('finance_control.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

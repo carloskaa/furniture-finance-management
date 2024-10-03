@@ -21,3 +21,6 @@ class CatalogoView(ListView):
 def home_page(request):
     productos = Producto.objects.all()
     return render(request, 'home_page2.html', {'productos': productos})
+
+def new_home_view(request):
+    return render(request, 'new_home.html')
