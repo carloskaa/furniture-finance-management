@@ -24,3 +24,4 @@ def home_page(request):
 
 def new_home_view(request):
     return render(request, 'new_home.html')
+
