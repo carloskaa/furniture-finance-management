@@ -5,9 +5,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda de muebles - Ofrecemos una gran variedad de muebles para el hogar y la oficina.">
+    <meta name="description" content="Encuentra los mejores muebles para tu hogar en Casablanca Muebles. Visítanos en Tunja, Boyacá, y descubre nuestra gran variedad de productos.">
     <link rel="icon" href="{% static 'images/iconoo.ico' %}" type="image/x-icon">
-    <title>CasaBlanca Muebles - Muebles modernos y elegantes en Tunja, Boyacá</title>
+    <title>Casablanca Muebles - Muebles modernos y elegantes en Tunja, Boyacá</title>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "CasaBlanca Muebles",
+          "url": "https://casablancamuebles.com",
+          "logo": "https://casablancamuebles.com/static/images/iconoo.ico", 
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+57 3102777178",
+            "contactType": "Customer Service"
+          }
+        }
+        </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -31,8 +45,8 @@
     <section id="inicio" class="bg-cover bg-center" style="background-image: url('{% static 'images/furniture.jpg' %}'); height: 400px;">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
             <div class="text-center text-white">
-                <h2 class="text-4xl font-semibold">Bienvenido a CasaBlanca Muebles</h2>
-                <p class="mt-4 text-lg">Encuentra el mueble perfecto para tu hogar</p>
+                <h2 class="text-4xl font-semibold">Bienvenido a Casablanca Muebles</h2>
+                <h3 class="mt-4 text-lg">Encuentra los mejores muebles para tu hogar en Casablanca Muebles. Visítanos en Tunja, Boyacá, y descubre nuestra gran variedad de productos.</h3>
                 <a href="#productos" class="mt-8 inline-block bg-slate-900 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">Ver Productos</a>
             </div>
         </div>
@@ -95,7 +109,7 @@
     <!-- Pie de página -->
     <footer class="bg-gray-800 py-6">
         <div class="container mx-auto px-6 text-center text-white">
-            <p class="text-sm">&copy; 2024 CasaBlanca Muebles. Todos los derechos reservados.</p>
+            <p class="text-sm">&copy; 2024 Casablanca Muebles. Todos los derechos reservados.</p>
         </div>
     </footer>
 
