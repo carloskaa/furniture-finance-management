@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tienda de muebles - Ofrecemos una gran variedad de muebles para el hogar y la oficina.">
-    <title>Inicio</title>
+    <link rel="icon" href="{% static 'images/iconoo.ico' %}" type="image/x-icon">
+    <title>CasaBlanca Muebles - Muebles modernos y elegantes en Tunja, Boyacá</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -14,7 +15,9 @@
     <!-- Encabezado / Navbar -->
     <header class="bg-white shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-gray-800">CasaBlanca Muebles</h1>
+            <a href="/">
+                <img src="{% static 'images/log-casa.png' %}" alt="Logo de la empresa" class="h-24 w-35">
+            </a>
             <nav>
                 <a href="#inicio" class="text-gray-600 hover:text-gray-800 mx-4">Inicio</a>
                 <a href="#productos" class="text-gray-600 hover:text-gray-800 mx-4">Productos</a>
@@ -41,13 +44,27 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <!-- Card de producto -->
             <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1567016545779-68e3cddc8d6e" alt="Mueble 1">
+                <img class="w-full h-48 object-cover" src="{% static "images/fondo.jpg" %}" alt="Mueble 1">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Mueble de Sala</h3>
-                    <p class="mt-2 text-gray-600">Perfecto para complementar cualquier sala moderna.</p>
+                    <h3 class="font-semibold text-lg">Muebles de Salas</h3>
+                    <p class="mt-2 text-gray-600">Todos los estilos de salas y sofas.</p>
                 </div>
             </div>
             <!-- Repite las tarjetas según los productos -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img class="w-full h-48 object-cover" src="{% static "images/alcoba.jpg" %}" alt="Mueble 1">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Muebles de Alcoba</h3>
+                    <p class="mt-2 text-gray-600">Todo tipo de camas y muebles para habitaciones.</p>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img class="w-full h-48 object-cover" src="{% static "images/comedor.jpg" %}" alt="Mueble 1">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">Mueble de Comedor</h3>
+                    <p class="mt-2 text-gray-600">Nuestros mejores diseños en comedores.</p>
+                </div>
+            </div>
         </div>
     </section>
 
