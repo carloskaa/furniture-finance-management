@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuentra los mejores muebles para tu hogar en Casablanca Muebles. Visítanos en Tunja, Boyacá, y descubre nuestra gran variedad de productos.">
+    <link rel="icon" href="{% static 'images/iconoo.ico' %}" type="image/x-icon">
+    <title>Casablanca Muebles - Muebles modernos y elegantes en Tunja, Boyacá</title>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "CasaBlanca Muebles",
+          "url": "https://casablancamuebles.com",
+          "logo": "https://casablancamuebles.com/static/images/iconoo.ico", 
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+57 3102777178",
+            "contactType": "Customer Service"
+          }
+        }
+        </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Encabezado / Navbar -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/">
+                <img src="{% static 'images/log-casa.png' %}" alt="Logo de la empresa" class="h-16 w-auto md:h-24">
+            </a>
+    
+            <!-- Botón del menú hamburguesa en dispositivos móviles -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <!-- Icono de hamburguesa -->
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                    </svg>
+                </button>
+            </div>
+    
+            <!-- Menú de navegación (oculto en móvil) -->
+            <nav id="menu" class="hidden md:flex space-x-4 items-center">
+                <a href="#inicio" class="text-gray-600 hover:text-gray-800 mx-4">Inicio</a>
+                <a href="#productos" class="text-gray-600 hover:text-gray-800 mx-4">Productos</a>
+                <a href="#ubicacion" class="text-gray-600 hover:text-gray-800 mx-4">Ubicación</a>
+                <a href="#contacto" class="text-gray-600 hover:text-gray-800 mx-4">Contacto</a>
+                <a href="{% url 'login' %}" class="bg-blue-500 text-white px-2 py-2 rounded-md hover:bg-blue-600 mx-2">Log-in</a>
+            </nav>
+        </div>
+    
+        <!-- Menú desplegable para móviles -->
+        <nav id="mobile-menu" class="hidden flex-col items bg-white space-y-2 md:hidden px-4 py-4">
+            <div class="flex flex-col items-start mt-3 gap-2">
+                <a href="#inicio" class="text-gray-600 hover:text-gray-800 py-2">Inicio</a>
+                <a href="#productos" class="text-gray-600 hover:text-gray-800 py-2">Productos</a>
+                <a href="#ubicacion" class="text-gray-600 hover:text-gray-800 py-2">Ubicación</a>
+                <a href="#contacto" class="text-gray-600 hover:text-gray-800 py-2">Contacto</a>
+                <a href="{% url 'login' %}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mx-0.4">Log-in</a>
+            </div>
+            
+        </nav>
+    </header>
+    <script src="{% static 'js/menu.js' %}"></script>
+    {% block content %}{% endblock %}
+
+</body>
+</html>

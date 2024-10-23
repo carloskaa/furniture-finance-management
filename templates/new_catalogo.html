@@ -1,0 +1,35 @@
+{% extends 'new_base.html' %}
+
+{% block content %}
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-6">Catálogo de {{ categoria.nombre }}</h1>
+
+<div class="grid grid-cols-3 gap-4">
+    {% for mueble in muebles %}
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+    {% if mueble.imagen %}
+        <img class="w-full h-48 object-cover" src="{{ mueble.imagen.url }}" alt="{{ mueble.nombre }}">
+        <div class="p-4">
+            <h3 class="font-semibold text-lg">Precio: ${{ mueble.nombre }}</h3>
+            <p class="mt-2 text-gray-600">${{ mueble.precio }}</p>
+        </div>
+        {% else %}
+            <p>No hay imagen disponible</p>
+        {% endif %}
+    </div>
+    {% empty %}
+        <p>No hay productos en esta categoría.</p>
+    {% endfor %}
+</div>
+
+{% comment %} <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+    <img class="w-full h-48 object-cover" src="{% static "images/comedor.jpg" %}" alt="Mueble 1">
+    <a href="{% url 'new_catalogo' categoria_id=2 %}">
+    <div class="p-4">
+        <h3 class="font-semibold text-lg">Mueble de Comedor</h3>
+        <p class="mt-2 text-gray-600">Nuestros mejores diseños en comedores.</p>
+    </div>
+    </a>
+</div> {% endcomment %}
+
+{% endblock %}
