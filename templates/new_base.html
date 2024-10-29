@@ -46,10 +46,10 @@
     
             <!-- Menú de navegación (oculto en móvil) -->
             <nav id="menu" class="hidden md:flex space-x-4 items-center">
-                <a href="#inicio" class="text-gray-600 hover:text-gray-800 mx-4">Inicio</a>
-                <a href="#productos" class="text-gray-600 hover:text-gray-800 mx-4">Productos</a>
-                <a href="#ubicacion" class="text-gray-600 hover:text-gray-800 mx-4">Ubicación</a>
-                <a href="#contacto" class="text-gray-600 hover:text-gray-800 mx-4">Contacto</a>
+                <a href="{%url 'new_home' %}" class="text-gray-600 hover:text-gray-800 mx-4">Inicio</a>
+                <a href="{%url 'new_home' %}#productos" class="text-gray-600 hover:text-gray-800 mx-4">Productos</a>
+                <a href="{%url 'new_home' %}#ubicacion" class="text-gray-600 hover:text-gray-800 mx-4">Ubicación</a>
+                <a href="{%url 'new_home' %}#contacto" class="text-gray-600 hover:text-gray-800 mx-4">Contacto</a>
                 <a href="{% url 'login' %}" class="bg-blue-500 text-white px-2 py-2 rounded-md hover:bg-blue-600 mx-2">Log-in</a>
             </nav>
         </div>
@@ -57,10 +57,10 @@
         <!-- Menú desplegable para móviles -->
         <nav id="mobile-menu" class="hidden flex-col items bg-white space-y-2 md:hidden px-4 py-4">
             <div class="flex flex-col items-start mt-3 gap-2">
-                <a href="#inicio" class="text-gray-600 hover:text-gray-800 py-2">Inicio</a>
-                <a href="#productos" class="text-gray-600 hover:text-gray-800 py-2">Productos</a>
-                <a href="#ubicacion" class="text-gray-600 hover:text-gray-800 py-2">Ubicación</a>
-                <a href="#contacto" class="text-gray-600 hover:text-gray-800 py-2">Contacto</a>
+                <a href="{%url 'new_home' %}" class="text-gray-600 hover:text-gray-800 py-2">Inicio</a>
+                <a href="{%url 'new_home' %}#producto" class="text-gray-600 hover:text-gray-800 py-2">Productos</a>
+                <a href="{%url 'new_home' %}#ubicacion" class="text-gray-600 hover:text-gray-800 py-2">Ubicación</a>
+                <a href="{%url 'new_home' %}#contacto" class="text-gray-600 hover:text-gray-800 py-2">Contacto</a>
                 <a href="{% url 'login' %}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mx-0.4">Log-in</a>
             </div>
             

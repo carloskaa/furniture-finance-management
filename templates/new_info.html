@@ -1,0 +1,26 @@
+{% extends 'new_base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">{{ mueble.nombre }}</h1>
+    
+    <div class="flex flex-col md:flex-row items-center md:items-start">
+        <!-- Sección de información del mueble -->
+        <div class="w-full md:w-1/2 md:pr-8">
+            <p class="text-xl font-semibold mb-4">Precio: ${{ mueble.precio }}</p>
+            <a href="{% url 'new_catalogo' mueble.categoria.id %}" class="inline-block mt-6 px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600">
+                Volver al catálogo
+            </a>
+        </div>
+
+        <!-- Imagen del mueble -->
+        <div class="w-full md:w-1/2 mt-8 md:mt-0">
+            {% if mueble.imagen %}
+                <img src="{{ mueble.imagen.url }}" alt="{{ mueble.nombre }}" class="rounded-lg shadow-lg w-full object-cover">
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

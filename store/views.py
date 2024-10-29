@@ -34,3 +34,10 @@ def new_catalogo_view(request, categoria_id):
         'muebles': muebles
     }
     return render(request, 'new_catalogo.html', context)
+
+def detalle_mueble(request, mueble_id):
+    mueble = get_object_or_404(Mueble, id=mueble_id)
+    context = {
+        'mueble': mueble
+    }
+    return render(request, 'new_info.html', context)
